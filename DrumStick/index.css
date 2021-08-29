@@ -8,6 +8,7 @@ body{
     margin: 20vw;
     align-items: center;
     justify-content: center;
+    flex:1;
 }
 .key{
     margin: 20px;
@@ -18,13 +19,16 @@ body{
     border: 3px solid black;
     text-align: center;
     transition: all 0.3s;
+    min-width:10vh;
 }
 .playing{
-    transform: scale(1.4);
+    transform: scale(1.2);
     background-color:black;
+    border: 3px solid rgb(255, 255, 49);
+    background-blend-mode:saturation;
 
 }
 
 .spantext{
-    font-size: 1.5vw;
+    font-size: 1vw;
 }
