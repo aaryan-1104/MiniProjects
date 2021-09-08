@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexGallery</title>
+</head>
+
+<style>
+    html {
+        box-sizing: border-box;
+        font-size: 30px;
+        font-weight: 200;
+        color: white;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    *,
+    *:before,
+    *:after {
+        box-sizing: inherit;
+    }
+
+    .panels {
+        min-height: 100vh;
+        overflow: hidden;
+        display: flex;
+    }
+
+    .panel {
+        box-shadow: inset 0 0 0 5px rgb(255, 255, 255, 0.1);
+        color: white;
+        margin: 0;
+        text-align: center;
+        align-items: center;
+        transition: inherit;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background-size: cover;
+        background-position:center;
+        transition:
+            font-size 0.7s cubic-bezier(0.6, -0.19, 0.7, -0.11),
+            flex 0.7s cubic-bezier(0.6, -0.19, 0.7, -0.11),
+            background 0.2s;
+    }
+
+    .panel1 {
+        background-image: url(../../Website/DESKTOP_WALLPAPER/headphones_books_education_121501_1280x720.jpg);
+    }
+
+    .panel2 {
+        background-image: url(../../Website/DESKTOP_WALLPAPER/pexels-ray-bilcliff-2055389.jpg);
+    }
+
+    .panel3 {
+        background-image: url(../../Website/DESKTOP_WALLPAPER/pexels-stephan-seeber-1054289.jpg);
+    }
+
+    .panel4 {
+        background-image: url(../../Website/DESKTOP_WALLPAPER/vlcsnap-2020-08-10-14h21m47s625.png);
+    }
+
+    .panel5 {
+        background-image: url(../../Website/DESKTOP_WALLPAPER/vlcsnap-2020-08-10-14h34m08s946.png);
+    }
+
+    .panel>* {
+        margin: 0;
+        width: 100%;
+        transition: transform 0.5s;
+        /* border: 1px solid red; */
+        display: flex;
+        flex: 1 0 auto;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .panel.active {
+        flex: 5;
+        font-size: 50px;
+    }
+
+    .panel>*:first-child {
+        transform: translateY(-100%);
+    }
+
+    .panel.open-active>*:first-child {
+        transform: translateY(0);
+    }
+
+    .panel>*:last-child {
+        transform: translateY(100%);
+    }
+
+    .panel.open-active>*:last-child {
+        transform: translateY(0);
+    }
+
+    .panel>p:nth-child(odd){
+        font-size: 30px;
+    }
+</style>
+
+<body>
+    <div class="panels">
+        <div class="panel panel1">
+            <p>Hey</p>
+            <p>Let's</p>
+            <p>Dance</p>
+        </div>
+        <div class="panel panel2">
+            <p>give</p>
+            <p>take</p>
+            <p>recieve</p>
+        </div>
+        <div class="panel panel3">
+            <p>experience</p>
+            <p>it</p>
+            <p>today</p>
+        </div>
+        <div class="panel panel4">
+            <p>give</p>
+            <p>all</p>
+            <p>you</p>
+        </div>
+        <div class="panel panel5">
+            <p>life</p>
+            <p>in</p>
+            <p>motion</p>
+        </div>
+    </div>
+
+    <script>
+        const panels = document.querySelectorAll('.panel');
+
+        function classActive() {
+            this.classList.toggle('active');
+        }
+
+        function classOpenActive(e){
+            if(e.propertyName.includes('flex')){
+                this.classList.toggle('open-active')
+            }
+        }
+
+        panels.forEach((panel) => {panel.addEventListener('click', classActive)});
+        panels.forEach((panel) => {panel.addEventListener('transitionend', classOpenActive)});
+        
+    </script>
+</body>
+
+</html>
